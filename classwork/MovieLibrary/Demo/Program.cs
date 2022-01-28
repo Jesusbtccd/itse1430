@@ -10,7 +10,7 @@ namespace Demo
             //Intergals
             sbyte sbyteValue = 10;
             short shortValue = 20;
-            int intValue = 30;
+            int intValue = 62_543;
             long longValue = 40L;
 
             //Floats
@@ -24,8 +24,11 @@ namespace Demo
             char letterGrade = 'A';
             string name = "Bob";
 
+            //Please dont do this
             int hoursWorked;
+            hoursWorked = 0;
 
+            //definitely assigned
             //hoursWorked = 10;
             intValue = hoursWorked;
        
