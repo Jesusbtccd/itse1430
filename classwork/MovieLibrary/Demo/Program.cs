@@ -4,10 +4,26 @@ namespace Demo
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main ( string[] args )
         {
             //DemoPrimitives();
+            //DemoArithmetic();
 
+            //Strings
+            var payRate = 8.75;
+            var payRateString = payRate.ToString();
+
+            //Escape sequence - character sequence that represents something that is unprintable
+            //   \n - newLine
+            //   \t - horizontal tab
+            //   \\ - single slash
+            //   \" - double quote
+            string literal = "Hello World\nBob";
+            string filePath = "C:\\windows \\system32";
+            string filePath2 = @"C:\windows\system32";   //Verbatim string - ignores escape sequences
+        }
+
+        static void DemoArithmetic
             //Arithmetic operators
             int x = 10, y = 20, z;
             z = x +y;
