@@ -12,6 +12,9 @@ namespace Demo
             //Strings
             var payRate = 8.75;
             var payRateString = payRate.ToString();
+            payRateString = 5.ToString();
+            payRateString = (4+5).ToString();
+
 
             //Escape sequence - character sequence that represents something that is unprintable
             //   \n - newLine
@@ -21,6 +24,40 @@ namespace Demo
             string literal = "Hello World\nBob";
             string filePath = "C:\\windows \\system32";
             string filePath2 = @"C:\windows\system32";   //Verbatim string - ignores escape sequences
+
+            string nullString = null;   //no value
+            string emptyString = "";
+            string emptyString2 = String.Empty;
+            bool areNotEqual = nullString == emptyString;
+            //nullString.ToString();    //crash
+            //nullString + emptyString; //Ok
+
+            //Determine if string is null or empty
+            bool isEmpty = (emptyString == null || emptyString == "");  //Dont do this!!
+            isEmpty = String.IsNullOrEmpty(emptyString);
+            isEmpty = emptyString.Length == 0;  //will crash if null
+
+            //case sensitive
+            string lowerName = "bob' , upperName = "BOB";
+            bool areStringsEqual = lowerName == upperName; //false
+            areStringsEqual = lowerName.ToUpper() == upperName.ToUpper(); //normalize, true
+            areStringsEqual = String.Compare(lowerName, upperName, true) == 0;  //StringComparison.IgnoreCase
+            areStringsEqual = String.Equals(lowerName, upperName, StringComparison.CurrentCultureIgnoreCase);
+
+            //Useful string functions
+            bool startsWithLetter = lowerName.StartsWith("B");  //endswith("B")
+            lowerName = " BOb ";
+            lowerName = lowerName.Trim();   //"Bob"  //TrimStart, Trimend
+
+            //Add leading spaces
+            lowerName = lowerName.PadLeft(20);  //PadRight
+
+            //Joining strings
+            string fullName = String.Join(' ', "Bob", "William", "smith");  //"Bob william Smith"
+            string numbers = String.Join(",", 1, 2, 3, 4);  //"1,2,3,4"
+
+            //Split a string
+            var tokens = "1|2|3|4"
         }
 
         static void DemoArithmetic
