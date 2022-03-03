@@ -7,10 +7,7 @@ namespace CharacterCreater.ConsoleHost
 {
     internal class Character
     {
-        //public Character ()
-        //{
-        //}
-
+        
         public string Name
         {
             get { return _name; }
@@ -20,15 +17,15 @@ namespace CharacterCreater.ConsoleHost
 
         public string _profession;
         public string _race;
-        public string _attributes;
         public int _strength;
         public int _intelligence;
         public int _agility;
         public int _constitution;
         public int _charisma;
+        public int _attributes;
         public string _description;
 
-        //public string Validate () { return "Error"; }
+       
     }
 }
 
