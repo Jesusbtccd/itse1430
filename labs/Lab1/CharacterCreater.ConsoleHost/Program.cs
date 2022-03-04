@@ -102,6 +102,40 @@ namespace CharacterCreater.ConsoleHost
                         character._race = ReadString("Choose a character race:\n Dwarf\n Elf\n Gnome\n Half Elf\n Human", true);
                     } while (!(character._race == "Dwarf" || character._race == "Elf" || character._race == "Gnome" || character._race == "Half Elf" || character._race == "Human")); break;
 
+                    case 'a':
+                    case 'A':
+                    {
+                        do
+                        {
+                            character._strength = ReadInt32("Enter Strength: ", 1);
+                        }
+                        while (character._strength <= 0 || character._strength >= 101);
+                        do
+                        {
+                            character._intelligence = ReadInt32("Enter Intelligence: ", 1);
+                        }
+                        while (character._intelligence <= 0 || character._intelligence >= 101);
+                        do
+                        {
+                            character._agility = ReadInt32("Enter Agility: ", 1);
+                        }
+                        while (character._agility <= 0 || character._agility >= 101);
+                        do
+                        {
+                            character._constitution = ReadInt32("Enter Constitution: ", 1);
+                        }
+                        while (character._constitution <= 0 || character._constitution >= 101);
+                        do
+                        {
+                            character._charisma = ReadInt32("Enter Charisma: ", 1);
+                        }
+                        while (character._charisma <= 0 || character._charisma >= 101);
+
+                        break;
+
+                    }
+
+
                     case 'q':
                     case 'Q':
                     {
@@ -123,7 +157,7 @@ namespace CharacterCreater.ConsoleHost
             Console.WriteLine("N)Character Name");
             Console.WriteLine("P)Character Profession");
             Console.WriteLine("R)Character Race");
-            Console.WriteLine("D)elete Character");
+            Console.WriteLine("A)ttributes");
             Console.WriteLine("Q)uit");
 
             do
@@ -137,8 +171,8 @@ namespace CharacterCreater.ConsoleHost
                     return 'P';
                 else if (String.Equals(input, "R", StringComparison.CurrentCultureIgnoreCase))
                     return 'R';
-                else if (String.Compare(input, "D", true) == 0)
-                    return 'D';
+                else if (String.Compare(input, "A", true) == 0)
+                    return 'A';
                 else if (String.Compare(input, "Q", true) == 0)
                     return 'Q';
                 else

@@ -25,6 +25,7 @@ namespace CharacterCreater.ConsoleHost
         public int _agility;
         public int _constitution;
         public int _charisma;
+        public int _attributes;
         public string _description;
 
         //public string Validate () { return "Error"; }
