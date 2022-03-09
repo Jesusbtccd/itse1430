@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLib.ConsoleHost", "MovieLib.ConsoleHost\MovieLib.ConsoleHost.csproj", "{1F399D50-EE47-4B87-BB87-EB1F20FD17AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLib", "MovieLib\MovieLib.csproj", "{5F250A79-7212-48F4-876A-897CA1BD443C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLib", "MovieLib\MovieLib.csproj", "{5F250A79-7212-48F4-876A-897CA1BD443C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movielib.WinHost", "Movielib.WinHost\Movielib.WinHost.csproj", "{81E4FC1C-DA91-4181-8EBC-681B13B87A5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5F250A79-7212-48F4-876A-897CA1BD443C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F250A79-7212-48F4-876A-897CA1BD443C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F250A79-7212-48F4-876A-897CA1BD443C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E4FC1C-DA91-4181-8EBC-681B13B87A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E4FC1C-DA91-4181-8EBC-681B13B87A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E4FC1C-DA91-4181-8EBC-681B13B87A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E4FC1C-DA91-4181-8EBC-681B13B87A5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
