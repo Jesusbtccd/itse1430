@@ -7,7 +7,10 @@ namespace CharacterCreater.ConsoleHost
 {
     internal class Character
     {
-        
+        //public Character ()
+        //{
+        //}
+
         public string Name
         {
             get { return _name; }

@@ -199,7 +199,15 @@ namespace CharacterCreater.ConsoleHost
                     character._constitution = ReadInt32("Enter Constitution: ", 1);
                 while (character._charisma <= 0 || character._charisma >= 101)
                     character._charisma = ReadInt32("Enter Charisma: ", 1);
-            character._description = ReadString("Enter a description (optional): ", false);
+                character._description = ReadString("Enter a description (optional): ", false);
+
+
+                //var error = character.Validate();
+                //if (String.IsNullOrEmpty(error))
+                //return;
+
+                //Console.WriteLine(error);
+            //} while (true);
             
 
         }    
@@ -230,8 +238,21 @@ namespace CharacterCreater.ConsoleHost
             };
 
             Console.WriteLine(character.Name);
+
+            //Desired format: releaseYear (duration mins) rating
+
+            //Formatting 1 - string concatenation
+            //  Console.WriteLine(releaseYear + " (" + duration + " mins) " + rating);
+            //Formatting 2 - string formatting
+            //  Console.WriteLine("{0} ({1} mins) {2}", releaseYear, duration, rating);
+            //  string temp = String.Format("{0} ({1} mins) {2}", releaseYear, duration, rating);
+            //  Console.WriteLine(temp);
+            //Formatting 3 - string interpolation
             Console.WriteLine($"{character._race}");
             Console.WriteLine($"{character._profession}");
+
+            //Conditional operator
+            //Console.WriteLine($"{movie._genre} ({(movie._isClassic ? "Classic" : "")})");
             Console.WriteLine(character._description);
         }
 
