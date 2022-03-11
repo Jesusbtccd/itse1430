@@ -18,9 +18,25 @@ namespace Movielib.WinHost
 
         }
 
-        
-        
+        private void OnFileExit ( object sender, EventArgs e )
+        {
+            //Confirm exit
+            DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-        
+
+
+            if (dr == DialogResult.Yes)
+            {
+                //user clicked yes
+                Close();
+            };
+
+        }
+
+        private void OnMovieAdd (object sender, EventArgs e)
+        {
+            var dlg = new MovieForm();
+            dlg.ShowDialog(this);
+        }
     }
 }
