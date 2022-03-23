@@ -30,20 +30,20 @@ namespace Movielib.WinHost
         private void InitializeComponent ()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._txtTitle = new System.Windows.Forms.TextBox();
             this._btnSave = new System.Windows.Forms.Button();
             this._btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._txtReleaseYear = new System.Windows.Forms.TextBox();
+            this._chkIsClassic = new System.Windows.Forms.CheckBox();
+            this._ddlRating = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this._txtgenre = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this._txtDuration = new System.Windows.Forms.TextBox();
+            this._txtGenre = new System.Windows.Forms.TextBox();
+            this._txtDescription = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -55,14 +55,14 @@ namespace Movielib.WinHost
             this.label1.Size = new System.Drawing.Size(29, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Title";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.OnSave);
             // 
-            // textBox1
+            // _txtTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(169, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 1;
+            this._txtTitle.Location = new System.Drawing.Point(169, 20);
+            this._txtTitle.Name = "_txtTitle";
+            this._txtTitle.Size = new System.Drawing.Size(100, 23);
+            this._txtTitle.TabIndex = 1;
             // 
             // _btnSave
             // 
@@ -90,36 +90,36 @@ namespace Movielib.WinHost
             this.label2.Size = new System.Drawing.Size(0, 15);
             this.label2.TabIndex = 4;
             // 
-            // textBox2
+            // _txtReleaseYear
             // 
-            this.textBox2.Location = new System.Drawing.Point(169, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 5;
+            this._txtReleaseYear.Location = new System.Drawing.Point(169, 65);
+            this._txtReleaseYear.Name = "_txtReleaseYear";
+            this._txtReleaseYear.Size = new System.Drawing.Size(100, 23);
+            this._txtReleaseYear.TabIndex = 5;
             // 
-            // checkBox1
+            // _chkIsClassic
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(169, 159);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 19);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "_chkIsClassic";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this._chkIsClassic.AutoSize = true;
+            this._chkIsClassic.Location = new System.Drawing.Point(169, 159);
+            this._chkIsClassic.Name = "_chkIsClassic";
+            this._chkIsClassic.Size = new System.Drawing.Size(76, 19);
+            this._chkIsClassic.TabIndex = 6;
+            this._chkIsClassic.Text = " Is Classic";
+            this._chkIsClassic.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // _ddlRating
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this._ddlRating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._ddlRating.FormattingEnabled = true;
+            this._ddlRating.Items.AddRange(new object[] {
             "G",
             "PG",
             "PG-13",
             "R"});
-            this.comboBox1.Location = new System.Drawing.Point(169, 194);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 7;
+            this._ddlRating.Location = new System.Drawing.Point(169, 194);
+            this._ddlRating.Name = "_ddlRating";
+            this._ddlRating.Size = new System.Drawing.Size(121, 23);
+            this._ddlRating.TabIndex = 7;
             // 
             // label3
             // 
@@ -129,7 +129,6 @@ namespace Movielib.WinHost
             this.label3.Size = new System.Drawing.Size(120, 15);
             this.label3.TabIndex = 8;
             this.label3.Text = "Duration (in minutes)";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -158,36 +157,36 @@ namespace Movielib.WinHost
             this.label6.TabIndex = 11;
             this.label6.Text = "Description";
             // 
-            // textBox3
+            // _txtDuration
             // 
-            this.textBox3.Location = new System.Drawing.Point(169, 114);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 12;
+            this._txtDuration.Location = new System.Drawing.Point(169, 114);
+            this._txtDuration.Name = "_txtDuration";
+            this._txtDuration.Size = new System.Drawing.Size(100, 23);
+            this._txtDuration.TabIndex = 12;
             // 
-            // _txtgenre
+            // _txtGenre
             // 
-            this._txtgenre.Location = new System.Drawing.Point(169, 261);
-            this._txtgenre.Name = "_txtgenre";
-            this._txtgenre.Size = new System.Drawing.Size(100, 23);
-            this._txtgenre.TabIndex = 13;
+            this._txtGenre.Location = new System.Drawing.Point(169, 261);
+            this._txtGenre.Name = "_txtGenre";
+            this._txtGenre.Size = new System.Drawing.Size(100, 23);
+            this._txtGenre.TabIndex = 13;
             // 
-            // textBox5
+            // _txtDescription
             // 
-            this.textBox5.Location = new System.Drawing.Point(169, 337);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(209, 81);
-            this.textBox5.TabIndex = 14;
+            this._txtDescription.Location = new System.Drawing.Point(169, 337);
+            this._txtDescription.Multiline = true;
+            this._txtDescription.Name = "_txtDescription";
+            this._txtDescription.Size = new System.Drawing.Size(209, 81);
+            this._txtDescription.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(78, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 15);
+            this.label7.Size = new System.Drawing.Size(71, 15);
             this.label7.TabIndex = 15;
-            this.label7.Text = "label7";
+            this.label7.Text = "Release Year";
             // 
             // MovieForm
             // 
@@ -195,20 +194,20 @@ namespace Movielib.WinHost
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this._txtgenre);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this._txtDescription);
+            this.Controls.Add(this._txtGenre);
+            this.Controls.Add(this._txtDuration);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this._ddlRating);
+            this.Controls.Add(this._chkIsClassic);
+            this.Controls.Add(this._txtReleaseYear);
             this.Controls.Add(this.label2);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._btnSave);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._txtTitle);
             this.Controls.Add(this.label1);
             this.Name = "MovieForm";
             this.Text = "Movie Details";
@@ -220,23 +219,23 @@ namespace Movielib.WinHost
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox _txtTitle;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox _txtReleaseYear;
+        private System.Windows.Forms.CheckBox _chkIsClassic;
+        private System.Windows.Forms.ComboBox _ddlRating;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox _txtDuration;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox _txtDescription;
         private System.Windows.Forms.Button _btnSave;
         private System.Windows.Forms.Button _btnCancel;
-        private System.Windows.Forms.TextBox _txtgenre;
+        private System.Windows.Forms.TextBox _txtGenre;
         private System.Windows.Forms.Label label7;
     }
 }

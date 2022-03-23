@@ -38,6 +38,7 @@ namespace Movielib.WinHost
             this._miCharacterDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._miHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this._lstMovies = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,19 +82,19 @@ namespace Movielib.WinHost
             // _miCharacterAdd
             // 
             this._miCharacterAdd.Name = "_miCharacterAdd";
-            this._miCharacterAdd.Size = new System.Drawing.Size(180, 22);
+            this._miCharacterAdd.Size = new System.Drawing.Size(107, 22);
             this._miCharacterAdd.Text = "&Add";
             // 
             // _miCharaterEdit
             // 
             this._miCharaterEdit.Name = "_miCharaterEdit";
-            this._miCharaterEdit.Size = new System.Drawing.Size(180, 22);
+            this._miCharaterEdit.Size = new System.Drawing.Size(107, 22);
             this._miCharaterEdit.Text = "&Edit";
             // 
             // _miCharacterDelete
             // 
             this._miCharacterDelete.Name = "_miCharacterDelete";
-            this._miCharacterDelete.Size = new System.Drawing.Size(180, 22);
+            this._miCharacterDelete.Size = new System.Drawing.Size(107, 22);
             this._miCharacterDelete.Text = "Delete";
             // 
             // helpToolStripMenuItem
@@ -110,11 +111,21 @@ namespace Movielib.WinHost
             this._miHelpAbout.Size = new System.Drawing.Size(107, 22);
             this._miHelpAbout.Text = "&About";
             // 
+            // _lstMovies
+            // 
+            this._lstMovies.FormattingEnabled = true;
+            this._lstMovies.ItemHeight = 15;
+            this._lstMovies.Location = new System.Drawing.Point(48, 57);
+            this._lstMovies.Name = "_lstMovies";
+            this._lstMovies.Size = new System.Drawing.Size(465, 289);
+            this._lstMovies.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this._lstMovies);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -137,6 +148,7 @@ namespace Movielib.WinHost
         private System.Windows.Forms.ToolStripMenuItem _miCharacterDelete;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem _miHelpAbout;
+        private System.Windows.Forms.ListBox _lstMovies;
     }
 }
 
