@@ -9,6 +9,7 @@
 using System.Windows.Forms;
 
 using MovieLib;
+using MovieLib.Memory;
 
 namespace Movielib.WinHost
 {
@@ -57,17 +58,27 @@ namespace Movielib.WinHost
             form.ShowDialog(this);
         }
 
-        private void OnMovieAdd (object sender, EventArgs e)
+        private void OnMovieAdd ( object sender, EventArgs e )
         {
             var dlg = new MovieForm();
 
-            //
-            if (dlg.ShowDialog(this) != DialogResult.OK)
-                return;
+            //Show modally - blocking call
 
-            //TODO: save movie
-            _movie = dlg.Movie;
-            UpdateUI();
+            do
+            {
+                if (dlg.ShowDialog(this) != DialogResult.OK)
+                    return;
+
+                //TODO: save movie
+                var error = _movies.Add(dlg.Movie);
+                if (String.IsNullOrEmpty(error))
+                {
+                    UpdateUI();
+                    return;
+                };
+
+                MessageBox.Show(this, error, "Add Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } while (true);
         }
 
         private void OnMovieEdit ( object sender, EventArgs e )
@@ -107,17 +118,21 @@ namespace Movielib.WinHost
 
         }
 
-        private Movie GetSelectedMovie () => _lstMovies.SelectedItem as Movie;
+        private Movie GetSelectedMovie ()
+        {
+            return _lstMovies.SelectedItem as Movie;
+        }
 
         private void UpdateUI ()
         {
             _lstMovies.Items.Clear();
-            if (_movie != null)
-                _lstMovies.Items.Add(_movie);
+
+            var movies = _movies.GetAll();
+            _lstMovies.Items.AddRange(movies);
         }
 
         private Movie _movie;
+        private readonly MemoryMovieDatabase _movies = new MemoryMovieDatabase();
 
-        
     }
 }

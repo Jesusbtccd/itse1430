@@ -8,8 +8,36 @@ namespace MovieLib.Memory
 {
     class MemoryMovieDatabase
     {
-        public virtual void Add ( Movie movie )
+        public virtual string Add ( Movie movie )
         {
+            //TODO: Validate
+            if (movie == null)
+                return "Movie cannot be null";
+            var error = movie.Validate();
+            if (!String.IsNullOrEmpty(error))
+                return "Movie is invalid";
+
+            //Title must be unique
+            var existing = FindByName(movie.Title);
+            if (existing != null)
+                return "Movie must be unique";
+
+            //Add
+            -_movies.Add(_movie);
+            return "";
+
+        }
+
+        private Movie FindByName ( string name )
+        {
+            //foreach rules
+            //1.loop variant is readonly
+            //2.array cannot change
+            foreach (var movie in _movies)
+                if (String.Equals(movie.Title, name, StringComparison.CurrentCultureIgnoreCase))
+                    return movie;
+
+            return null;
         }
 
         public void Delete ( Movie movie )
@@ -22,7 +50,8 @@ namespace MovieLib.Memory
 
         public Movie[] GetAll()
         {
-            return new Movie[0];
+            //TODO:broken
+            return _movies.ToArray();
         }
 
         public void Update ( Movie movie )
