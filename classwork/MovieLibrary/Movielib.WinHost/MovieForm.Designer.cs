@@ -29,6 +29,7 @@ namespace Movielib.WinHost
         /// </summary>
         private void InitializeComponent ()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this._txtTitle = new System.Windows.Forms.TextBox();
             this._btnSave = new System.Windows.Forms.Button();
@@ -45,12 +46,16 @@ namespace Movielib.WinHost
             this._txtGenre = new System.Windows.Forms.TextBox();
             this._txtDescription = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(87, 20);
+            this.label1.Location = new System.Drawing.Point(103, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 15);
             this.label1.TabIndex = 0;
@@ -59,28 +64,33 @@ namespace Movielib.WinHost
             // 
             // _txtTitle
             // 
-            this._txtTitle.Location = new System.Drawing.Point(169, 20);
+            this._txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this._txtTitle.Location = new System.Drawing.Point(138, 39);
             this._txtTitle.Name = "_txtTitle";
-            this._txtTitle.Size = new System.Drawing.Size(100, 23);
+            this._txtTitle.Size = new System.Drawing.Size(209, 23);
             this._txtTitle.TabIndex = 1;
+            this._txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateTitle);
             // 
             // _btnSave
             // 
-            this._btnSave.Location = new System.Drawing.Point(549, 395);
+            this._btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnSave.Location = new System.Drawing.Point(303, 296);
             this._btnSave.Name = "_btnSave";
             this._btnSave.Size = new System.Drawing.Size(75, 23);
-            this._btnSave.TabIndex = 2;
+            this._btnSave.TabIndex = 8;
             this._btnSave.Text = "Save";
             this._btnSave.UseVisualStyleBackColor = true;
             // 
             // _btnCancel
             // 
-            this._btnCancel.Location = new System.Drawing.Point(681, 395);
+            this._btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this._btnCancel.Location = new System.Drawing.Point(384, 296);
             this._btnCancel.Name = "_btnCancel";
             this._btnCancel.Size = new System.Drawing.Size(75, 23);
-            this._btnCancel.TabIndex = 3;
+            this._btnCancel.TabIndex = 9;
             this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
+            this._btnCancel.Click += new System.EventHandler(this.OnCancel);
             // 
             // label2
             // 
@@ -92,18 +102,19 @@ namespace Movielib.WinHost
             // 
             // _txtReleaseYear
             // 
-            this._txtReleaseYear.Location = new System.Drawing.Point(169, 65);
+            this._txtReleaseYear.Location = new System.Drawing.Point(138, 68);
             this._txtReleaseYear.Name = "_txtReleaseYear";
-            this._txtReleaseYear.Size = new System.Drawing.Size(100, 23);
-            this._txtReleaseYear.TabIndex = 5;
+            this._txtReleaseYear.Size = new System.Drawing.Size(65, 23);
+            this._txtReleaseYear.TabIndex = 2;
+            this._txtReleaseYear.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateReleaseYear);
             // 
             // _chkIsClassic
             // 
             this._chkIsClassic.AutoSize = true;
-            this._chkIsClassic.Location = new System.Drawing.Point(169, 159);
+            this._chkIsClassic.Location = new System.Drawing.Point(138, 126);
             this._chkIsClassic.Name = "_chkIsClassic";
             this._chkIsClassic.Size = new System.Drawing.Size(76, 19);
-            this._chkIsClassic.TabIndex = 6;
+            this._chkIsClassic.TabIndex = 4;
             this._chkIsClassic.Text = " Is Classic";
             this._chkIsClassic.UseVisualStyleBackColor = true;
             // 
@@ -116,7 +127,7 @@ namespace Movielib.WinHost
             "PG",
             "PG-13",
             "R"});
-            this._ddlRating.Location = new System.Drawing.Point(169, 194);
+            this._ddlRating.Location = new System.Drawing.Point(138, 151);
             this._ddlRating.Name = "_ddlRating";
             this._ddlRating.Size = new System.Drawing.Size(121, 23);
             this._ddlRating.TabIndex = 7;
@@ -124,7 +135,7 @@ namespace Movielib.WinHost
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 122);
+            this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 15);
             this.label3.TabIndex = 8;
@@ -133,7 +144,7 @@ namespace Movielib.WinHost
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(87, 194);
+            this.label4.Location = new System.Drawing.Point(94, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 15);
             this.label4.TabIndex = 9;
@@ -142,7 +153,7 @@ namespace Movielib.WinHost
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(87, 264);
+            this.label5.Location = new System.Drawing.Point(96, 183);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 15);
             this.label5.TabIndex = 10;
@@ -151,7 +162,7 @@ namespace Movielib.WinHost
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(96, 337);
+            this.label6.Location = new System.Drawing.Point(68, 212);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 11;
@@ -159,17 +170,19 @@ namespace Movielib.WinHost
             // 
             // _txtDuration
             // 
-            this._txtDuration.Location = new System.Drawing.Point(169, 114);
+            this._txtDuration.Location = new System.Drawing.Point(138, 97);
             this._txtDuration.Name = "_txtDuration";
-            this._txtDuration.Size = new System.Drawing.Size(100, 23);
-            this._txtDuration.TabIndex = 12;
+            this._txtDuration.Size = new System.Drawing.Size(65, 23);
+            this._txtDuration.TabIndex = 3;
+            this._txtDuration.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateDuration);
             // 
             // _txtGenre
             // 
-            this._txtGenre.Location = new System.Drawing.Point(169, 261);
+            this._txtGenre.Location = new System.Drawing.Point(138, 180);
             this._txtGenre.Name = "_txtGenre";
-            this._txtGenre.Size = new System.Drawing.Size(100, 23);
-            this._txtGenre.TabIndex = 13;
+            this._txtGenre.Size = new System.Drawing.Size(121, 23);
+            this._txtGenre.TabIndex = 6;
+            this._txtGenre.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateGenre);
             // 
             // _txtDescription
             // 
@@ -178,21 +191,38 @@ namespace Movielib.WinHost
             this._txtDescription.Name = "_txtDescription";
             this._txtDescription.Size = new System.Drawing.Size(209, 81);
             this._txtDescription.TabIndex = 14;
+            //this._txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            //| System.Windows.Forms.AnchorStyles.Left) 
+            //| System.Windows.Forms.AnchorStyles.Right)));
+            //this._txtDescription.Location = new System.Drawing.Point(138, 209);
+            //this._txtDescription.Multiline = true;
+            //this._txtDescription.Name = "_txtDescription";
+            //this._txtDescription.Size = new System.Drawing.Size(209, 81);
+            //this._txtDescription.TabIndex = 7;
+            //this._txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidateDescription);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 65);
+            this.label7.Location = new System.Drawing.Point(61, 71);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 15);
             this.label7.TabIndex = 15;
             this.label7.Text = "Release Year";
             // 
+            // errorProvider1
+            // 
+            //this.errorProvider1.ContainerControl = this;
+            // 
+            // _errors
+            // 
+            //this._errors.ContainerControl = this;
+            // 
             // MovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(470, 334);
             this.Controls.Add(this.label7);
             this.Controls.Add(this._txtDescription);
             this.Controls.Add(this._txtGenre);
@@ -209,8 +239,15 @@ namespace Movielib.WinHost
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._txtTitle);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(486, 373);
             this.Name = "MovieForm";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Movie Details";
+            this.Click += new System.EventHandler(this.OnSave);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +274,7 @@ namespace Movielib.WinHost
         private System.Windows.Forms.Button _btnCancel;
         private System.Windows.Forms.TextBox _txtGenre;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider _errors;
     }
 }

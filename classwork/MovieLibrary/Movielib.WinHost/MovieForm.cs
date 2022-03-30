@@ -50,6 +50,10 @@ namespace Movielib.WinHost
         }
         private void OnSave ( object sender, EventArgs e )
         {
+            //Check all children for valid status
+            //Ensure all children are validated
+            if (!ValidateChildren())
+                    return;
 
             //create a new movie
             var movie = new Movie();
@@ -88,5 +92,60 @@ namespace Movielib.WinHost
             Close();
             
         }
+
+        private void OnValidateTitle (object sender, CancelEventArgs e )
+        {
+            
+            {
+                var control = sender as Control;
+                //var value = ReadAsInt32(control, -1);
+                if (String.IsNullOrEmpty(control.Text))
+                {
+                    _errors.SetError(control, $"Release year must be at least 0 {Movie.MinimumReleaseYear}");
+                    e.Cancel = true;
+
+                } else
+                    _errors.SetError(control, "");
+            }
+        }
+
+        private void OnValidateReleaseYear ( object sender, CancelEventArgs e )
+        {
+            var control = sender as Control;
+            var value = ReadAsInt32(control, -1);
+            if (value < Movie.MinimumReleaseYear)
+            {
+                _errors.SetError(control, $"Release year must be at least {Movie.MinimumReleaseYear}");
+                e.Cancel = true;
+
+            } else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateDuration ( object sender, CancelEventArgs e )
+        {
+            var control = sender as Control;
+            var value = ReadAsInt32(control, -1);
+            if (value < Movie.MinimumReleaseYear)
+            {
+                _errors.SetError(control, $"Duration must be at least 0");
+                e.Cancel = true;
+
+            } else
+                _errors.SetError(control, "");
+        }
+
+        private void OnValidateGenre ( object sender, CancelEventArgs e )
+        {
+            var control = sender as Control;
+            if (String.IsNullOrEmpty(control.Text))
+            {
+                _errors.SetError(control, "Genre is required");
+                e.Cancel = true;
+            } else
+                _errors.SetError(control, "");
+        }
+
+       
     }
 }

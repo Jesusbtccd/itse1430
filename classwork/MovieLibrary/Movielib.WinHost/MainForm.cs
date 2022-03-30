@@ -20,7 +20,23 @@ namespace Movielib.WinHost
 
         }
 
-        private void OnFileExit ( object sender, EventArgs e )
+        protected override void OnFormClosing ( FormClosingEventArgs e )
+        {
+            //Confirm exit
+            DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
+
+            if (dr != DialogResult.Yes)
+            {
+              e.Cancel = true;
+                //user clicked yes
+                //Close();
+            };
+        }
+    
+
+    private void OnFileExit ( object sender, EventArgs e )
         {
             //Confirm exit
             DialogResult dr = MessageBox.Show("Are you sure you want to quit?", "Quit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -52,7 +68,6 @@ namespace Movielib.WinHost
             //TODO: save movie
             _movie = dlg.Movie;
             UpdateUI();
-
         }
 
         private void OnMovieEdit ( object sender, EventArgs e )
@@ -92,10 +107,7 @@ namespace Movielib.WinHost
 
         }
 
-        private Movie GetSelectedMovie ()
-        {
-            return _lstMovies.SelectedItem as Movie;
-        }
+        private Movie GetSelectedMovie () => _lstMovies.SelectedItem as Movie;
 
         private void UpdateUI ()
         {
