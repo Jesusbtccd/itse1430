@@ -21,6 +21,24 @@ namespace Movielib.WinHost
 
         }
 
+        protected override void OnLoad ( EventArgs e )
+        {
+            base.OnLoad(e);
+
+
+            //if database is empty
+            if (_movies.GetAll().Length == 0)
+            {
+                if (MessageBox.Show(this, "Do you want to seed the database?", "Seed",
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //seed database
+                    var seed = new SeedDatabase();
+                    seed.Seed(_movies);
+                    UpdateUI();
+                };
+            };
+        }
         protected override void OnFormClosing ( FormClosingEventArgs e )
         {
             //Confirm exit
@@ -73,6 +91,7 @@ namespace Movielib.WinHost
                 var error = _movies.Add(dlg.Movie);
                 if (String.IsNullOrEmpty(error))
                 {
+                    dlg.Movie.Title = "Star Wars";
                     UpdateUI();
                     return;
                 };
@@ -83,21 +102,25 @@ namespace Movielib.WinHost
 
         private void OnMovieEdit ( object sender, EventArgs e )
         {
-            var menuItem = sender as ToolStripMenuItem;
+           
             //sender == _miCharacterEdit;
             //TODO: Get selected movie
             var movie = GetSelectedMovie();
             if (movie == null)
                 return;
-
-            //TODO: Show form
             var dlg = new MovieForm();
             dlg.Movie = movie;
 
+            if (dlg.ShowDialog(this) != DialogResult.OK)
+                return;
 
             //TODO: Update movie
-            _movie = dlg.Movie;
-            UpdateUI();
+           var error = _movies.Update(movie.Id, dlg.Movie);
+                if (String.IsNullOrEmpty(error))
+                {
+                    UpdateUI();
+                    return;
+                };
         }
 
         private void OnMovieDelete ( object sender, EventArgs e )
@@ -113,7 +136,7 @@ namespace Movielib.WinHost
                 return;
 
             //TODO: Delete
-            _movie = null;
+            _movies.Delete(movie);
             UpdateUI();
 
         }
@@ -128,7 +151,20 @@ namespace Movielib.WinHost
             _lstMovies.Items.Clear();
 
             var movies = _movies.GetAll();
+            BreakMovies(movies);
+
             _lstMovies.Items.AddRange(movies);
+        }
+
+        private void BreakMovies ( Movie[] movies )
+        {
+            if (movies.Length > 0)
+            {
+                var firstMovie = movies[0];
+
+                //movies[0] = new movie();
+                firstMovie.Title = "Star Wars";
+            };
         }
 
         private Movie _movie;

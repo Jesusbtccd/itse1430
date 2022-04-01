@@ -107,7 +107,7 @@ namespace MovieLib
         }
 
         /// <summary>Gets the unique ID of the movie.</summary>
-        public int Id { get; private set; }
+        public int Id { get; set; }
         //{
         //    get { return _id; }
         //    private set { _id = value; }
@@ -118,40 +118,87 @@ namespace MovieLib
         {
             return $"{Title} ({ReleaseYear})";
         }
+
+        public Movie Copy ()
+        {
+            //object initializer syntax
+            //var item = new Movie();
+            //item.Id = Id;
+            //item.Title = Title;
+            //item.Description = Description;
+            //item.Duration = Duration;
+            //item.ReleaseYear = ReleaseYear;
+            //item.Genre = Genre;
+            //item.Rating = Rating;
+            //item.IsClassic = IsClassic;
+
+            //return item;
+
+            //Object initializer syntax
+            // Only works with new
+            // Steps:
+            //   1. Remove semicolon at end of new, add curly braces
+            return new Movie() {
+                Id = Id,
+                Title = Title,
+                Description = Description,
+                Duration = Duration,
+                ReleaseYear = ReleaseYear,
+                Genre = Genre,
+                Rating = Rating,
+                IsClassic = IsClassic,
+            };
+
+        }
+
+        public void CopyFrom ( Movie source )
+        {
+            Title = source.Title;
+            Description = source.Description;
+            Duration = source.Duration;
+            ReleaseYear = source.ReleaseYear;
+            Genre = source.Genre;
+            Rating = source.Rating;
+            IsClassic = source.IsClassic;
+        }
+
+
     }
+        
 
-    #region Class Notes
-    // Class - wraps data and functionality
-    //   Naming: nouns, Pascal cased
-    //   Default accessibility: internal for a class, private for a class member    
+        #region Class Notes
+        // Class - wraps data and functionality
+        //   Naming: nouns, Pascal cased
+        //   Default accessibility: internal for a class, private for a class member    
 
-    //Access modifiers
-    //  public - everyone
-    //  internal - assembly only
-    //  private - declaring type
+        //Access modifiers
+        //  public - everyone
+        //  internal - assembly only
+        //  private - declaring type
 
-    //Fields - where the data is stored
-    // Naming: nouns, camel cased, start with underscore
-    //   Readable and writable (assuming accessibility)
-    //   Work just like all other variables
-    // Do not expose publicly
+        //Fields - where the data is stored
+        // Naming: nouns, camel cased, start with underscore
+        //   Readable and writable (assuming accessibility)
+        //   Work just like all other variables
+        // Do not expose publicly
 
-    //Properties - exposes data
-    //  Field syntax with methods being called
-    //  Can get (read) and/or set (write)
-    //    T getter ()
-    //    void setter ( T value )
-    //  Mixed acessibility
-    //    Only on either getter or setter
-    //    Must be more restrictive than property
-    //  property-declaration ::= [access] [modifiers] T id { accessors }    
-    //  accessors ::= full-accessors | auto-accessors
-    //  full-accessors ::= [[access] get { S* }] [[access] set { S* }]
-    //  auto-accessors ::= [[access] get;] [[access] set;]
+        //Properties - exposes data
+        //  Field syntax with methods being called
+        //  Can get (read) and/or set (write)
+        //    T getter ()
+        //    void setter ( T value )
+        //  Mixed acessibility
+        //    Only on either getter or setter
+        //    Must be more restrictive than property
+        //  property-declaration ::= [access] [modifiers] T id { accessors }    
+        //  accessors ::= full-accessors | auto-accessors
+        //  full-accessors ::= [[access] get { S* }] [[access] set { S* }]
+        //  auto-accessors ::= [[access] get;] [[access] set;]
 
-    // Handling null
-    //   null coalescing ::= E ?? E, find first non-null
-    //   null conditional ::= E?.M, execute M if E not null, changes type to T?
-    //   combined ::= E?.M ?? D, resets type back to T            
-    #endregion
+        // Handling null
+        //   null coalescing ::= E ?? E, find first non-null
+        //   null conditional ::= E?.M, execute M if E not null, changes type to T?
+        //   combined ::= E?.M ?? D, resets type back to T            
+        #endregion
+    
 }

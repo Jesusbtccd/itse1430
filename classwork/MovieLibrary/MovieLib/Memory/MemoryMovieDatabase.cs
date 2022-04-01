@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MovieLib.Memory
 {
-    class MemoryMovieDatabase
+    public class MemoryMovieDatabase
     {
-        public virtual string Add ( Movie movie )
+        public string Add ( Movie movie )
         {
             //TODO: Validate
             if (movie == null)
@@ -23,7 +23,8 @@ namespace MovieLib.Memory
                 return "Movie must be unique";
 
             //Add
-            -_movies.Add(_movie);
+             movie.Id = _id++;
+            _movies.Add(movie.Copy());
             return "";
 
         }
@@ -41,26 +42,84 @@ namespace MovieLib.Memory
         }
 
         public void Delete ( Movie movie )
-        { }
-       
-        public Movie Get ()
         {
-            return null;
+            //find by movie.Id;
+            foreach (var item in _movies)
+            {
+                if (item.Id == movie.Id)
+                {
+                    _movies.Remove(item);
+                    return;
+                };
+            };
+        }
+       
+        public Movie Get ( int id)
+        {
+            
+                //var movie = FindById(id);
+                //return movie?.Copy();
+                return FindById(id)?.Copy();
+            
         }
 
-        public Movie[] GetAll()
+        private Movie FindById ( int id )
+        {
+                //find by movie.Id;
+                foreach (var item in _movies)
+                {
+                    if (item.Id == id)
+                        return item;
+                   
+                };
+                return null;
+        }
+
+public Movie[] GetAll()
         {
             //TODO:broken
-            return _movies.ToArray();
+            //need to clone movies so changes outside database do not impact our copy
+            // return _movies.ToArray();
+            var items = new Movie[_movies.Count];
+            var index = 0;
+            foreach (var movie in _movies)
+                items[index++] = movie.Copy();
+
+            return items;
+
         }
 
-        public void Update ( Movie movie )
-        { }
+        public string Update ( int id, Movie movie )
+        {
+            //TODO: Validate
+            if (id <= 0)
+                return "Id must greater than equal to 0";
+            if (movie == null)
+                return "Movie cannot be null";
+            var error = movie.Validate();
+            if (!String.IsNullOrEmpty(error))
+                return error;
+
+            //Title must be unique or same movie
+            var existing = FindByName(movie.Title);
+            if (existing != null && existing.Id != id)
+                return "Movie must be unique";
+
+            //make sure movie already exists
+            existing = FindById(id);
+            if (existing == null)
+                return "Movie does not exist";
+
+            //Update
+            existing.CopyFrom(movie);
+            return "";
+        }
+
 
 
         private readonly List<Movie> _movies = new List<Movie>();
 
-     
-
+        //simple identifier
+        private int _id = 1;
     }
 }
