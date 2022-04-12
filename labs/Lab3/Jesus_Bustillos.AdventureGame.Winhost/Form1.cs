@@ -17,5 +17,14 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             InitializeComponent();
         }
 
+        private void exitToolStripMenuItem_Click ( object sender, EventArgs e )
+        {
+            this.Close();
+        }
+
+        private void exitToolStripMenuItem1_Click ( object sender, EventArgs e )
+        {
+            this.Close();
+        }
     }
 }
