@@ -39,7 +39,11 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             this.jesusBustillosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.iTSE1430ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.characterCreatorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.characterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -52,7 +56,7 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(532, 24);
             this.menuStrip1.TabIndex = 3;
@@ -71,7 +75,7 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -97,20 +101,45 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             // jesusBustillosToolStripMenuItem1
             // 
             this.jesusBustillosToolStripMenuItem1.Name = "jesusBustillosToolStripMenuItem1";
-            this.jesusBustillosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.jesusBustillosToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.jesusBustillosToolStripMenuItem1.Text = "Jesus Bustillos";
             // 
             // iTSE1430ToolStripMenuItem1
             // 
             this.iTSE1430ToolStripMenuItem1.Name = "iTSE1430ToolStripMenuItem1";
-            this.iTSE1430ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.iTSE1430ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.iTSE1430ToolStripMenuItem1.Text = "ITSE-1430";
             // 
             // characterCreatorToolStripMenuItem1
             // 
             this.characterCreatorToolStripMenuItem1.Name = "characterCreatorToolStripMenuItem1";
-            this.characterCreatorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.characterCreatorToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.characterCreatorToolStripMenuItem1.Text = "Character Creator";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.characterToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(532, 24);
+            this.menuStrip2.TabIndex = 4;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // characterToolStripMenuItem
+            // 
+            this.characterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem});
+            this.characterToolStripMenuItem.Name = "characterToolStripMenuItem";
+            this.characterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.characterToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.characterToolStripMenuItem.Text = "Character";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
             // 
             // MainForm
             // 
@@ -118,12 +147,16 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 283);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
+            this.MainMenuStrip = this.menuStrip2;
             this.MaximumSize = new System.Drawing.Size(800, 600);
             this.MinimumSize = new System.Drawing.Size(300, 200);
             this.Name = "MainForm";
             this.Text = "Mainform";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +173,9 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
         private System.Windows.Forms.ToolStripMenuItem jesusBustillosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem iTSE1430ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem characterCreatorToolStripMenuItem1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem characterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     }
 }
 
