@@ -26,5 +26,11 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
         {
             this.Close();
         }
+
+        private void aboutToolStripMenuItem1_Click ( object sender, EventArgs e )
+        {
+            FormAbout Form = new FormAbout();
+            Form.Show();
+        }
     }
 }

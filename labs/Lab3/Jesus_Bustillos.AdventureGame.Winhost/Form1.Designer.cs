@@ -36,9 +36,6 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.jesusBustillosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.iTSE1430ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.characterCreatorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.characterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +72,7 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
             this.exitToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -89,32 +86,11 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
             // 
             // aboutToolStripMenuItem1
             // 
-            this.aboutToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.jesusBustillosToolStripMenuItem1,
-            this.iTSE1430ToolStripMenuItem1,
-            this.characterCreatorToolStripMenuItem1});
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
             this.aboutToolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem1.Text = "About";
-            // 
-            // jesusBustillosToolStripMenuItem1
-            // 
-            this.jesusBustillosToolStripMenuItem1.Name = "jesusBustillosToolStripMenuItem1";
-            this.jesusBustillosToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.jesusBustillosToolStripMenuItem1.Text = "Jesus Bustillos";
-            // 
-            // iTSE1430ToolStripMenuItem1
-            // 
-            this.iTSE1430ToolStripMenuItem1.Name = "iTSE1430ToolStripMenuItem1";
-            this.iTSE1430ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.iTSE1430ToolStripMenuItem1.Text = "ITSE-1430";
-            // 
-            // characterCreatorToolStripMenuItem1
-            // 
-            this.characterCreatorToolStripMenuItem1.Name = "characterCreatorToolStripMenuItem1";
-            this.characterCreatorToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.characterCreatorToolStripMenuItem1.Text = "Character Creator";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // menuStrip2
             // 
@@ -170,9 +146,6 @@ namespace Jesus_Bustillos.AdventureGame.Winhost
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem jesusBustillosToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem iTSE1430ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem characterCreatorToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem characterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;

@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Jesus_Bustillos.AdventureGame.Winhost
 {
-    public partial class CreateNewCharacter : Form
+    public partial class CharacterNew2 : Form
     {
-        public CreateNewCharacter ()
+        public CharacterNew2 ()
         {
             InitializeComponent();
         }
 
-        private void CreateNewCharacter_Load ( object sender, EventArgs e )
+        private void Profession_SelectedIndexChanged ( object sender, EventArgs e )
         {
-
+            //public string _profession;
         }
     }
 }
